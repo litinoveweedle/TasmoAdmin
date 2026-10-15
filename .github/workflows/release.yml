@@ -13,6 +13,9 @@ jobs:
   release-docker:
     name: Release new version
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
     steps:
     - uses: actions/checkout@v6
     - name: Set image name from repository
@@ -44,6 +47,8 @@ jobs:
   release-artifact:
     name: Release new version
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v6
     - uses: shivammathur/setup-php@v2
